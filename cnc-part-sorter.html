@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CNC Part Sorter | Cameron Jordan</title>
+  <meta name="description" content="Benchtop XY gantry that photographs parts, classifies them, and routes them into bins." />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="../index.html" aria-label="Go to home">
+          <div class="mark" aria-hidden="true"><span>&lt;CJ/&gt;</span></div>
+          <div class="title">
+            <strong>Cameron Jordan</strong>
+            <small>Mechanical Engineering · prototyping · manufacturing</small>
+          </div>
+        </a>
+
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#skills">Skills</a></li>
+            <li><a href="../resume.html">Resume & roles</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <div class="panel project">
+          <div class="project-title">
+            <h1>CNC Part Sorter (2-Axis Sorting Gantry)</h1>
+            <div class="meta">Status: Complete</div>
+          </div>
+
+          <p><strong>Summary:</strong> Built a benchtop XY gantry that captures an image of a part, classifies it, moves to a target bin, and releases the part using a servo-actuated gate.</p>
+
+          <div class="project-grid">
+            <div>
+              <h2>Overview</h2>
+              <p>
+                This project was an end-to-end automation build: mechanism, sensing, decision logic, and repeatable actuation.
+                The goal was a system that can execute a full sorting cycle reliably under controlled conditions.
+              </p>
+              <p>
+                The platform is a stacked XY stage built from belt-driven linear actuators on 80/20 extrusion.
+                A servo-driven tilt plate provides a robust release mechanism with minimal failure modes.
+              </p>
+
+              <h2>Tools and skills</h2>
+              <div class="stack">
+                <span class="badge accent2">Mechatronics</span>
+                <span class="badge">MATLAB</span>
+                <span class="badge accent">Automation</span>
+                <span class="badge">Prototyping</span>
+              </div>
+
+              <details class="expand">
+                <summary>
+                  <span>Expand details</span>
+                  <span class="hint">mechanism • pipeline • improvements</span>
+                </summary>
+                <div class="inner">
+                  <h2>Design / technical approach</h2>
+                  <ul class="detail-list">
+                    <li><strong>Motion system:</strong> belt-driven linear actuators assembled into an XY stage.</li>
+                    <li><strong>Structure:</strong> 80/20 frame bracing to maintain squareness and reduce racking.</li>
+                    <li><strong>Sorting hardware:</strong> 2×2 bin tray designed as an MVP and easy to scale.</li>
+                    <li><strong>Release:</strong> servo-actuated tilt gate for consistent drop behavior.</li>
+                  </ul>
+
+                  <h2>Perception and decision pipeline</h2>
+                  <ul class="detail-list">
+                    <li><strong>Capture:</strong> consistent camera geometry and lighting.</li>
+                    <li><strong>Classify:</strong> MATLAB workflow using image processing and a trained detector setup.</li>
+                    <li><strong>Actuate:</strong> move to bin center → tilt gate → return/home.</li>
+                  </ul>
+
+                  <h2>What I learned / would improve</h2>
+                  <p>
+                    The largest gains come from environment control (lighting, camera pose) and calibration.
+                    A second iteration would add a coordinate calibration routine and structured test logging.
+                  </p>
+                </div>
+              </details>
+
+              <p style="margin-top:14px;">
+                <a class="btn" href="../index.html#projects">Back to projects</a>
+              </p>
+            </div>
+
+            <div>
+              <div class="gallery">
+                <figure>
+                  <img src="../assets/img/cnc_sorter_overview.png" alt="XY gantry with 2x2 sorting bins" loading="lazy" />
+                  <figcaption>XY gantry + 2×2 bin tray (MVP: 4 bins).</figcaption>
+                </figure>
+                <figure>
+                  <img src="../assets/img/cnc_sorter_matlab.png" alt="MATLAB interface used for classification" loading="lazy" />
+                  <figcaption>MATLAB workflow used for capture and classification.</figcaption>
+                </figure>
+                <figure>
+                  <img src="../assets/img/cnc_sorter_bins.png" alt="Sorting bin tray detail" loading="lazy" />
+                  <figcaption>Bin tray designed for clean routing and easy expansion.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div>
+          <span style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">
+            © 2025 Cameron Jordan
+          </span>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Electric Bike | Cameron Jordan</title>
+  <meta name="description" content="DIY pedal-assist architecture and fabrication with high-power wiring and rigid mounting." />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="../index.html" aria-label="Go to home">
+          <div class="mark" aria-hidden="true"><span>&lt;CJ/&gt;</span></div>
+          <div class="title">
+            <strong>Cameron Jordan</strong>
+            <small>Mechanical Engineering · prototyping · manufacturing</small>
+          </div>
+        </a>
+
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#skills">Skills</a></li>
+            <li><a href="../resume.html">Resume & roles</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <div class="panel project">
+          <div class="project-title">
+            <h1>Electric Bike (DIY Pedal-Assist System)</h1>
+            <div class="meta">Status: Incomplete</div>
+          </div>
+
+          <p><strong>Summary:</strong> Designed and partially built a custom assist system with emphasis on safe high-power wiring, mechanical integration, and realistic torque and speed constraints.</p>
+
+          <div class="project-grid">
+            <div>
+              <h2>Overview</h2>
+              <p>
+                The intent was to force real electromechanical design decisions: drivetrain behavior, mounting stiffness,
+                wiring safety, and serviceability. The target was predictable torque-focused assist rather than peak speed.
+              </p>
+              <p>
+                The project was interrupted before full system testing, but it includes meaningful design work in architecture,
+                bracket fabrication, and high-current safety practices.
+              </p>
+
+              <h2>Tools and skills</h2>
+              <div class="stack">
+                <span class="badge">Mechanical design</span>
+                <span class="badge accent2">High-power electronics</span>
+                <span class="badge">Wiring</span>
+                <span class="badge accent">Fabrication</span>
+              </div>
+
+              <details class="expand">
+                <summary>
+                  <span>Expand details</span>
+                  <span class="hint">architecture • mount • next iteration</span>
+                </summary>
+                <div class="inner">
+                  <h2>Design / technical approach</h2>
+                  <ul class="detail-list">
+                    <li><strong>Electrical system:</strong> high-current controller + fused critical connections to limit fault cascades.</li>
+                    <li><strong>Mechanical integration:</strong> rigid motor bracket fabricated using waterjet and manual mill.</li>
+                    <li><strong>Drivetrain planning:</strong> gear ratios selected to bias torque assist while controlling top speed.</li>
+                    <li><strong>Freewheel strategy:</strong> dual freewheels to prevent back-driving between pedals and motor.</li>
+                  </ul>
+
+                  <h2>What I learned / would improve</h2>
+                  <p>
+                    For a future version, I would start with a complete schematic and harness plan, define an enclosure strategy,
+                    and design mounting around serviceability and theft resistance from day one.
+                  </p>
+                </div>
+              </details>
+
+              <p style="margin-top:14px;">
+                <a class="btn" href="../index.html#projects">Back to projects</a>
+              </p>
+            </div>
+
+            <div>
+              <div class="gallery">
+                <figure>
+                  <img src="../assets/img/IMG_8144.jpg" alt="Motor mounted under frame with custom bracket" loading="lazy" />
+                  <figcaption>Custom motor mount designed for rigidity and alignment.</figcaption>
+                </figure>
+                <figure>
+                  <img src="../assets/img/IMG_8145.jpg" alt="Side view of motor integration relative to drivetrain" loading="lazy" />
+                  <figcaption>Motor position relative to drivetrain and frame geometry.</figcaption>
+                </figure>
+                <figure>
+                  <img src="../assets/img/IMG_8177.jpg" alt="Controller and wiring layout" loading="lazy" />
+                  <figcaption>Controller and DC-DC converter layout with fused connections.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div>
+          <span style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">
+            © 2025 Cameron Jordan
+          </span>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
