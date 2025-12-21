@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Engineering Portfolio | Cameron Jordan</title>
+  <meta name="description" content="Engineering portfolio for Cameron Jordan focused on prototyping, manufacturing, test rigs, and electromechanical systems." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="index.html" aria-label="Go to home">
+          <div class="mark" aria-hidden="true"><span>&lt;CJ/&gt;</span></div>
+          <div class="title">
+            <strong>Cameron Jordan</strong>
+            <small>Mechanical Engineering · prototyping · manufacturing</small>
+          </div>
+        </a>
+
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="resume.html">Resume & roles</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <h1>Engineer focused on building usable hardware.</h1>
+            <p class="tagline">
+              I build prototypes, fixtures, test rigs, and electromechanical systems. I prioritize clear constraints,
+              repeatable fabrication, and measurements that hold up.
+            </p>
+            <p>
+              This portfolio is organized by project. Each project page starts with a consistent overview and expands into
+              design approach, tools, and results.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="#projects">View projects <span class="kbd">↓</span></a>
+              <a class="btn" href="resume.html">Resume & roles <span class="kbd">PDF</span></a>
+              <a class="btn" href="#contact">Contact <span class="kbd">@</span></a>
+            </div>
+          </div>
+
+          <aside class="side-card" aria-label="Quick summary">
+            <h2>Focus areas</h2>
+            <ul class="quick-list">
+              <li><strong>Manufacturing:</strong> CAD-to-CAM workflows, CNC machining, fixturing</li>
+              <li><strong>Test + measurement:</strong> designing rigs and data pipelines for repeatability</li>
+              <li><strong>Integration:</strong> mechanisms, electronics, sensors, and practical constraints</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Projects</h2>
+            <p>Click any project for the full write-up, media, and technical details.</p>
+          </div>
+        </div>
+
+        <div class="grid" aria-label="Project thumbnails">
+          <article class="thumb-card">
+            <h3><a href="projects/vice.html">VICE: Vibram Impact Cushioning Evaluator</a></h3>
+            <p>Pendulum-based test rig to quantify energy return using repeatable impact physics and encoder-based measurement.</p>
+            <div class="badges">
+              <span class="badge accent">Test rig design</span>
+              <span class="badge">Instrumentation</span>
+              <span class="badge accent2">Mechanisms</span>
+            </div>
+            <a class="thumb" href="projects/vice.html" aria-label="Open VICE project">
+              <img src="assets/img/vice_physical_prototype_side.jpg" alt="VICE pendulum rig prototype" loading="lazy" />
+            </a>
+            <a class="btn" href="projects/vice.html">Open project</a>
+          </article>
+
+          <article class="thumb-card">
+            <h3><a href="projects/cnc-part-sorter.html">CNC Part Sorter</a></h3>
+            <p>XY gantry that photographs parts, classifies them in MATLAB, then routes to bins via servo-actuated release.</p>
+            <div class="badges">
+              <span class="badge accent2">Mechatronics</span>
+              <span class="badge">Machine vision</span>
+              <span class="badge accent">Automation</span>
+            </div>
+            <a class="thumb" href="projects/cnc-part-sorter.html" aria-label="Open CNC Part Sorter project">
+              <img src="assets/img/cnc_sorter_overview.png" alt="XY gantry with sorting bins" loading="lazy" />
+            </a>
+            <a class="btn" href="projects/cnc-part-sorter.html">Open project</a>
+          </article>
+
+          <article class="thumb-card">
+            <h3><a href="projects/magic-rings.html">Magic Rings (4-Axis Machining)</a></h3>
+            <p>Multi-axis planning and setup strategy for an interlocked rings illusion designed to eliminate visible seams.</p>
+            <div class="badges">
+              <span class="badge">CAD</span>
+              <span class="badge accent">4-axis CAM</span>
+              <span class="badge accent2">Fixturing</span>
+            </div>
+            <a class="thumb" href="projects/magic-rings.html" aria-label="Open Magic Rings project">
+              <img src="assets/img/magic_rings_finished.jpg" alt="Finished interlocked rings" loading="lazy" />
+            </a>
+            <a class="btn" href="projects/magic-rings.html">Open project</a>
+          </article>
+
+          <article class="thumb-card">
+            <h3><a href="projects/electric-bike.html">Electric Bike (DIY Pedal-Assist)</a></h3>
+            <p>System architecture and early fabrication focused on safe high-power wiring and rigid mechanical integration.</p>
+            <div class="badges">
+              <span class="badge accent2">Electromechanical</span>
+              <span class="badge">Safety</span>
+              <span class="badge accent">Fabrication</span>
+            </div>
+            <a class="thumb" href="projects/electric-bike.html" aria-label="Open Electric Bike project">
+              <img src="assets/img/IMG_8144.jpg" alt="Motor mounted under frame with custom bracket" loading="lazy" />
+            </a>
+            <a class="btn" href="projects/electric-bike.html">Open project</a>
+          </article>
+
+          <article class="thumb-card">
+            <h3><a href="projects/coaster.html">CNC-Machined Coaster</a></h3>
+            <p>Compact CNC project demonstrating clean CAD/CAM execution: engraving, pockets, chamfers, and finishing.</p>
+            <div class="badges">
+              <span class="badge accent">CNC milling</span>
+              <span class="badge">CAM</span>
+              <span class="badge accent2">Finishing</span>
+            </div>
+            <a class="thumb" href="projects/coaster.html" aria-label="Open Coaster project">
+              <img src="assets/img/coaster_render.png" alt="Coaster render" loading="lazy" />
+            </a>
+            <a class="btn" href="projects/coaster.html">Open project</a>
+          </article>
+
+          <article class="thumb-card">
+            <h3><a href="projects/generative-post.html">Generative Design Post</a></h3>
+            <p>Generative design in Fusion 360 for a 2 kN load case, comparing safety factors and mass trade-offs.</p>
+            <div class="badges">
+              <span class="badge accent2">Generative</span>
+              <span class="badge">Constraints</span>
+              <span class="badge accent">Validation mindset</span>
+            </div>
+            <a class="thumb" href="projects/generative-post.html" aria-label="Open Generative Post project">
+              <img src="assets/img/gen_post_print.jpg" alt="3D printed generative design post" loading="lazy" />
+            </a>
+            <a class="btn" href="projects/generative-post.html">Open project</a>
+          </article>
+
+          <article class="thumb-card">
+            <h3><a href="projects/metal-3d-printing.html">Metal 3D Printing (Metal-Infused Filament)</a></h3>
+            <p>Process development for printing, debinding, and sintering metal-infused filament with repeatable outcomes.</p>
+            <div class="badges">
+              <span class="badge accent2">Additive</span>
+              <span class="badge">Process</span>
+              <span class="badge accent">Documentation</span>
+            </div>
+            <a class="thumb fallback" href="projects/metal-3d-printing.html" aria-label="Open Metal 3D Printing project">
+              <div>Image coming soon</div>
+            </a>
+            <a class="btn" href="projects/metal-3d-printing.html">Open project</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Skills</h2>
+            <p>Skills are mapped to projects. (On the project pages, these link back to relevant work.)</p>
+          </div>
+        </div>
+
+        <div class="skills-grid" aria-label="Skills by category">
+          <div class="skill-cat">
+            <h3>CAD & Design</h3>
+            <ul class="skill-list">
+              <li><a href="projects/coaster.html">CAD (parametric) <code>→ coaster</code></a></li>
+              <li><a href="projects/magic-rings.html">CAD (multi-axis geometry) <code>→ rings</code></a></li>
+              <li><a href="projects/electric-bike.html">Mechanical design <code>→ bike</code></a></li>
+              <li><a href="projects/generative-post.html">Generative design <code>→ gen post</code></a></li>
+            </ul>
+          </div>
+
+          <div class="skill-cat">
+            <h3>Machining & CAM</h3>
+            <ul class="skill-list">
+              <li><a href="projects/coaster.html">CAM toolpaths <code>→ coaster</code></a></li>
+              <li><a href="projects/coaster.html">CNC milling <code>→ coaster</code></a></li>
+              <li><a href="projects/magic-rings.html">4-axis machining <code>→ rings</code></a></li>
+              <li><a href="projects/magic-rings.html">Fixturing/setup planning <code>→ rings</code></a></li>
+            </ul>
+          </div>
+
+          <div class="skill-cat">
+            <h3>Electronics & Embedded</h3>
+            <ul class="skill-list">
+              <li><a href="projects/electric-bike.html">High-power wiring <code>→ bike</code></a></li>
+              <li><a href="projects/cnc-part-sorter.html">Arduino <code>→ sorter</code></a></li>
+              <li><a href="projects/vice.html">Sensors/encoders <code>→ vice</code></a></li>
+            </ul>
+          </div>
+
+          <div class="skill-cat">
+            <h3>Data & Analysis</h3>
+            <ul class="skill-list">
+              <li><a href="projects/cnc-part-sorter.html">MATLAB <code>→ sorter</code></a></li>
+              <li><a href="projects/vice.html">Data analysis <code>→ vice</code></a></li>
+              <li><a href="projects/metal-3d-printing.html">Optimization <code>→ metal</code></a></li>
+            </ul>
+          </div>
+
+          <div class="skill-cat">
+            <h3>Additive & Materials</h3>
+            <ul class="skill-list">
+              <li><a href="projects/metal-3d-printing.html">Additive manufacturing <code>→ metal</code></a></li>
+              <li><a href="projects/generative-post.html">3D printing constraints <code>→ gen post</code></a></li>
+            </ul>
+          </div>
+
+          <div class="skill-cat">
+            <h3>Testing & Mechanisms</h3>
+            <ul class="skill-list">
+              <li><a href="projects/vice.html">Test rig design <code>→ vice</code></a></li>
+              <li><a href="projects/cnc-part-sorter.html">Mechatronics <code>→ sorter</code></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Contact</h2>
+            <p>Best way to reach me is email or LinkedIn.</p>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="block">
+            <h3>Reach me</h3>
+            <ul class="contact-list">
+              <li>
+                <a href="mailto:camj18personal@gmail.com">
+                  <strong>Email</strong>
+                  <span>camj18personal@gmail.com</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/cameron-jordan-5634b1264/" target="_blank" rel="noopener">
+                  <strong>LinkedIn</strong>
+                  <span>linkedin.com/in/cameron-jordan-5634b1264</span>
+                </a>
+              </li>
+              <li>
+                <a href="tel:6038319751">
+                  <strong>Phone</strong>
+                  <span>603 831 9751</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="block">
+            <h3>Resume & roles</h3>
+            <p>
+              See resume, job targets, and role summary here:
+            </p>
+            <p>
+              <a class="btn primary" href="resume.html">Open resume & roles <span class="kbd">→</span></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div>
+          <span style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">
+            © 2025 Cameron Jordan · last updated: December 2025
+          </span>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
