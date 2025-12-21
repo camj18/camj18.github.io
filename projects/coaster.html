@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CNC-Machined Coaster | Cameron Jordan</title>
+  <meta name="description" content="CNC-machined coaster project showing CAD/CAM execution and machining operations." />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="../index.html" aria-label="Go to home">
+          <div class="mark" aria-hidden="true"><span>&lt;CJ/&gt;</span></div>
+          <div class="title">
+            <strong>Cameron Jordan</strong>
+            <small>Mechanical Engineering · prototyping · manufacturing</small>
+          </div>
+        </a>
+
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#skills">Skills</a></li>
+            <li><a href="../resume.html">Resume & roles</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <div class="panel project">
+          <div class="project-title">
+            <h1>CNC-Machined Coaster</h1>
+            <div class="meta">Status: Complete</div>
+          </div>
+
+          <p><strong>Summary:</strong> A compact CNC milling project designed to demonstrate clean CAD/CAM execution and machining fundamentals.</p>
+
+          <div class="project-grid">
+            <div>
+              <h2>Overview</h2>
+              <p>
+                This project was intentionally constrained. The goal was to show solid command of the full CNC workflow,
+                from CAD through CAM to a finished part, with clear toolpath sequencing and attention to finish.
+              </p>
+              <p>
+                The CAM includes a range of common operations in one part: engraving, pocketing, chamfering, and finishing passes.
+              </p>
+
+              <h2>Tools and skills</h2>
+              <div class="stack">
+                <span class="badge">CAD</span>
+                <span class="badge accent2">CAM</span>
+                <span class="badge accent">CNC milling</span>
+                <span class="badge">Setup discipline</span>
+              </div>
+
+              <details class="expand">
+                <summary>
+                  <span>Expand details</span>
+                  <span class="hint">setup • operations • takeaways</span>
+                </summary>
+                <div class="inner">
+                  <h2>Design and CAM approach</h2>
+                  <ul class="detail-list">
+                    <li><strong>CAD & CAM:</strong> Fusion 360</li>
+                    <li><strong>Machine:</strong> HAAS CM-1 CNC mill</li>
+                    <li><strong>Material:</strong> HDPE</li>
+                    <li><strong>Operations:</strong> engraving, pocketing, chamfering, finishing</li>
+                  </ul>
+
+                  <h2>What I learned</h2>
+                  <p>
+                    Small parts still demand discipline. This reinforced how much final quality is determined by CAM choices:
+                    tool selection, stepovers, ordering, and conservative choices where the surface finish matters.
+                  </p>
+                </div>
+              </details>
+
+              <p style="margin-top:14px;">
+                <a class="btn" href="../index.html#projects">Back to projects</a>
+              </p>
+            </div>
+
+            <div>
+              <div class="gallery">
+                <figure>
+                  <img src="../assets/img/coaster_render.png" alt="Rendered view of the coaster design." loading="lazy" />
+                  <figcaption>Final coaster design with engraved features.</figcaption>
+                </figure>
+
+                <figure>
+                  <div data-video-controls>
+                    <div class="video-wrap">
+                      <video controls playsinline preload="metadata">
+                        <source src="../assets/img/coaster_milling.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+
+                    <div class="video-controls" aria-label="Video speed controls">
+                      <button type="button" data-speed="1">1×</button>
+                      <button type="button" data-speed="2">2×</button>
+                      <button type="button" data-speed="5">5×</button>
+                      <button type="button" data-speed="10">10×</button>
+                      <span class="speed-readout" data-speed-readout>Speed: 1×</span>
+                    </div>
+                  </div>
+                  <figcaption>CNC milling process on the HAAS CM-1.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div>
+          <span style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">
+            © 2025 Cameron Jordan
+          </span>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="../site.js"></script>
+</body>
+</html>
