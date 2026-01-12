@@ -13,7 +13,7 @@
     <div class="container">
       <div class="nav">
         <a class="brand" href="../index.html" aria-label="Go to home">
-          <div class="mark" aria-hidden="true"><span>&lt;CJ/&gt;</span></div>
+          <div class="mark" aria-hidden="true"><span>CJ</span></div>
           <div class="title">
             <strong>Cameron Jordan</strong>
             <small>Mechanical Engineering · prototyping · manufacturing</small>
@@ -24,7 +24,7 @@
           <ul>
             <li><a href="../index.html#projects">Projects</a></li>
             <li><a href="../index.html#skills">Skills</a></li>
-            <li><a href="../resume.html">Resume & roles</a></li>
+            <li><a href="../resume.html">Resume</a></li>
             <li><a href="../index.html#contact">Contact</a></li>
           </ul>
         </nav>
@@ -41,18 +41,14 @@
             <div class="meta">Status: Complete</div>
           </div>
 
-          <p><strong>Summary:</strong> Built a benchtop XY gantry that captures an image of a part, classifies it, moves to a target bin, and releases the part using a servo-actuated gate.</p>
+          <!-- Updated summary per provision 7 -->
+          <p><strong>Summary:</strong> I worked with a team to build a MVP for a 2‑Axis CNC part sorter.</p>
 
           <div class="project-grid">
             <div>
               <h2>Overview</h2>
               <p>
-                This project was an end-to-end automation build: mechanism, sensing, decision logic, and repeatable actuation.
-                The goal was a system that can execute a full sorting cycle reliably under controlled conditions.
-              </p>
-              <p>
-                The platform is a stacked XY stage built from belt-driven linear actuators on 80/20 extrusion.
-                A servo-driven tilt plate provides a robust release mechanism with minimal failure modes.
+                This project involved three parts: two-axis linear actuators, code to run them, and a machine learning pipeline. To keep the project as a proof of concept and due to limited time, we decided to use four different shapes with different colors for the machine learning. Since we ran the machine learning in MATLAB, we also chose to code the CNC control in MATLAB. This resulted in a relatively fast and reliable system.
               </p>
 
               <h2>Tools and skills</h2>
@@ -63,34 +59,12 @@
                 <span class="badge">Prototyping</span>
               </div>
 
-              <details class="expand">
-                <summary>
-                  <span>Expand details</span>
-                  <span class="hint">mechanism • pipeline • improvements</span>
-                </summary>
-                <div class="inner">
-                  <h2>Design / technical approach</h2>
-                  <ul class="detail-list">
-                    <li><strong>Motion system:</strong> belt-driven linear actuators assembled into an XY stage.</li>
-                    <li><strong>Structure:</strong> 80/20 frame bracing to maintain squareness and reduce racking.</li>
-                    <li><strong>Sorting hardware:</strong> 2×2 bin tray designed as an MVP and easy to scale.</li>
-                    <li><strong>Release:</strong> servo-actuated tilt gate for consistent drop behavior.</li>
-                  </ul>
-
-                  <h2>Perception and decision pipeline</h2>
-                  <ul class="detail-list">
-                    <li><strong>Capture:</strong> consistent camera geometry and lighting.</li>
-                    <li><strong>Classify:</strong> MATLAB workflow using image processing and a trained detector setup.</li>
-                    <li><strong>Actuate:</strong> move to bin center → tilt gate → return/home.</li>
-                  </ul>
-
-                  <h2>What I learned / would improve</h2>
-                  <p>
-                    The largest gains come from environment control (lighting, camera pose) and calibration.
-                    A second iteration would add a coordinate calibration routine and structured test logging.
-                  </p>
-                </div>
-              </details>
+              <h2>What I did</h2>
+              <ul>
+                <li>Designed, laser cut, and assembled sorting bins</li>
+                <li>Helped develop MATLAB code for CNC sorting</li>
+                <li>Helped train the machine learning algorithm</li>
+              </ul>
 
               <p style="margin-top:14px;">
                 <a class="btn" href="../index.html#projects">Back to projects</a>
