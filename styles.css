@@ -309,7 +309,7 @@ section{ padding: 26px 0; }
 .thumb{
   border: 1px solid var(--border);
   border-radius: 14px;
-  height: 140px;
+  height: 220px;
   overflow: hidden;
   background: rgba(11,15,20,0.35);
   display:block;
@@ -606,3 +606,4 @@ footer{
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
 }
+
