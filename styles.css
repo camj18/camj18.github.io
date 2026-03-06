@@ -317,7 +317,7 @@ section{ padding: 26px 0; }
 .thumb img{
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 .thumb.fallback{
@@ -606,4 +606,5 @@ footer{
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
 }
+
 
