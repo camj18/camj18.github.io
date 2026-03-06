@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site Customizer</title>
+  <!-- reuse the main styles so the form matches the site aesthetics -->
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* basic form styling */
+    body {
+      padding: 20px;
+    }
+    form > div {
+      margin-bottom: 14px;
+    }
+    label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    input[type="color"],
+    input[type="text"],
+    input[type="number"],
+    select {
+      padding: 6px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--panel-2);
+      color: var(--text);
+      width: 220px;
+    }
+    input[type="number"] {
+      width: 90px;
+    }
+    button {
+      margin-top: 12px;
+      padding: 8px 14px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      cursor: pointer;
+    }
+    button:hover {
+      border-color: var(--accent);
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Site Customizer</h1>
+  <!-- password gate -->
+  <div id="auth">
+    <p>Enter admin password to edit settings:</p>
+    <input type="password" id="admin-password" />
+    <button id="password-btn">Enter</button>
+    <p id="password-error" style="color: #f66; display: none;">Incorrect password</p>
+  </div>
+  <!-- settings form -->
+  <form id="settings-form" class="hidden">
+    <div>
+      <label for="bg">Background color</label>
+      <input type="color" id="bg" />
+    </div>
+    <div>
+      <label for="panel">Panel color</label>
+      <input type="color" id="panel" />
+    </div>
+    <div>
+      <label for="panel2">Secondary panel color</label>
+      <input type="color" id="panel2" />
+    </div>
+    <div>
+      <label for="text">Text color</label>
+      <input type="color" id="text" />
+    </div>
+    <div>
+      <label for="muted">Muted text color</label>
+      <input type="color" id="muted" />
+    </div>
+    <div>
+      <label for="muted2">Secondary muted color</label>
+      <input type="color" id="muted2" />
+    </div>
+    <div>
+      <label for="border">Border color</label>
+      <input type="color" id="border" />
+    </div>
+    <div>
+      <label for="accent">Accent color</label>
+      <input type="color" id="accent" />
+    </div>
+    <div>
+      <label for="accent2">Secondary accent color</label>
+      <input type="color" id="accent2" />
+    </div>
+    <div>
+      <label for="radius">Border radius (px)</label>
+      <input type="number" id="radius" min="0" />
+    </div>
+    <div>
+      <label for="radiusSm">Small radius (px)</label>
+      <input type="number" id="radiusSm" min="0" />
+    </div>
+    <div>
+      <label for="max">Max width (px)</label>
+      <input type="number" id="max" min="0" />
+    </div>
+    <div>
+      <label for="pad">Page padding (px)</label>
+      <input type="number" id="pad" min="0" />
+    </div>
+    <div>
+      <label for="fontSize">Base font size (px)</label>
+      <input type="number" id="fontSize" min="8" />
+    </div>
+    <div>
+      <label for="sans">Primary font stack</label>
+      <input type="text" id="sans" />
+    </div>
+    <div>
+      <label for="mono">Monospace font stack</label>
+      <input type="text" id="mono" />
+    </div>
+    <div>
+      <label for="thumbHeight">Thumbnail height (px)</label>
+      <input type="number" id="thumbHeight" min="0" />
+    </div>
+    <div>
+      <label for="thumbFit">Thumbnail fit</label>
+      <select id="thumbFit">
+        <option value="contain">contain</option>
+        <option value="cover">cover</option>
+      </select>
+    </div>
+    <button type="button" id="save-btn">Save Settings</button>
+  </form>
+  <script>
+    // NOTE: Change this password to whatever you like.
+    const ADMIN_PASSWORD = 'changeme';
+
+    // Map form field IDs to CSS variables or custom keys
+    const FIELD_MAP = {
+      bg: '--bg',
+      panel: '--panel',
+      panel2: '--panel-2',
+      text: '--text',
+      muted: '--muted',
+      muted2: '--muted-2',
+      border: '--border',
+      accent: '--accent',
+      accent2: '--accent-2',
+      radius: '--radius',
+      radiusSm: '--radius-sm',
+      max: '--max',
+      pad: '--pad',
+      fontSize: '--font-size',
+      sans: '--sans',
+      mono: '--mono',
+      thumbHeight: '--thumb-height',
+      thumbFit: '--thumb-fit'
+    };
+
+    document.getElementById('password-btn').addEventListener('click', () => {
+      const entered = (document.getElementById('admin-password').value || '').trim();
+      if (entered === ADMIN_PASSWORD) {
+        document.getElementById('auth').style.display = 'none';
+        document.getElementById('settings-form').classList.remove('hidden');
+        loadSettings();
+      } else {
+        document.getElementById('password-error').style.display = 'block';
+      }
+    });
+
+    document.getElementById('save-btn').addEventListener('click', saveSettings);
+
+    function loadSettings() {
+      const rootStyles = getComputedStyle(document.documentElement);
+      const stored = JSON.parse(localStorage.getItem('siteSettings') || '{}');
+      for (const id in FIELD_MAP) {
+        const prop = FIELD_MAP[id];
+        const input = document.getElementById(id);
+        if (!input) continue;
+        let value = stored[prop] || rootStyles.getPropertyValue(prop);
+        value = value.trim();
+        if (input.type === 'color') {
+          // normalize rgb/rgba to hex; naive parse if hex not provided
+          if (value.startsWith('#')) {
+            input.value = value;
+          } else {
+            const ctx = document.createElement('canvas').getContext('2d');
+            ctx.fillStyle = value;
+            input.value = ctx.fillStyle;
+          }
+        } else if (input.type === 'number') {
+          // strip units
+          input.value = parseFloat(value) || '';
+        } else {
+          input.value = value;
+        }
+      }
+    }
+
+    function saveSettings() {
+      const settings = {};
+      for (const id in FIELD_MAP) {
+        const prop = FIELD_MAP[id];
+        const input = document.getElementById(id);
+        if (!input) continue;
+        let value = input.value;
+        // append units for numeric values
+        if (input.type === 'number' && value !== '') {
+          value = value + 'px';
+        }
+        settings[prop] = value;
+      }
+      localStorage.setItem('siteSettings', JSON.stringify(settings));
+      applySettings(settings);
+      alert('Settings saved! Reload your site pages to see changes.');
+    }
+
+    function applySettings(settings) {
+      const root = document.documentElement;
+      for (const key in settings) {
+        root.style.setProperty(key, settings[key]);
+      }
+      // For immediate preview of custom thumbnail and font size on this page, set inline styles
+      if (settings['--font-size']) {
+        document.body.style.fontSize = settings['--font-size'];
+      }
+      if (settings['--thumb-height']) {
+        document.querySelectorAll('.thumb').forEach(el => {
+          el.style.height = settings['--thumb-height'];
+        });
+      }
+      if (settings['--thumb-fit']) {
+        document.querySelectorAll('.thumb img').forEach(el => {
+          el.style.objectFit = settings['--thumb-fit'];
+        });
+      }
+    }
+  </script>
+</body>
+</html>
