@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Metal 3D Printing | Cameron Jordan</title>
+  <meta name="description" content="Designed and documented a complete workflow for printing, debinding, and sintering metal-infused filament including spool feed modifications, purge procedures, furnace programming, and shrinkage characterization." />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    /* Page-specific fixes so this matches the rest of the site without looking cramped */
+    .container{
+      max-width: 1380px;
+    }
+
+    .project-title h1{
+      margin-bottom: 8px;
+    }
+
+    .project .meta{
+      white-space: nowrap;
+    }
+
+    .project-grid{
+      grid-template-columns: minmax(0, 1.45fr) minmax(360px, 0.95fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .project h2{
+      margin-top: 0;
+    }
+
+    .media-stack{
+      display: grid;
+      gap: 18px;
+    }
+
+    .media-card{
+      border: 1px solid var(--border, rgba(255,255,255,0.12));
+      border-radius: 16px;
+      background: rgba(17,24,37,0.6);
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.22);
+    }
+
+    .media-card h3{
+      margin: 0;
+      padding: 16px 16px 10px;
+      font-size: 15px;
+    }
+
+    .media-card p.caption{
+      margin: 0;
+      padding: 10px 16px 16px;
+      color: var(--muted, #a8b3c7);
+      font-size: 13px;
+    }
+
+    .image-frame{
+      padding: 0 16px 0;
+    }
+
+    .image-frame img{
+      display: block;
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 12px;
+      border: 1px solid var(--border, rgba(255,255,255,0.12));
+      background: rgba(0,0,0,0.18);
+    }
+
+    .image-frame.contain img{
+      object-fit: contain;
+      background: rgba(8,12,18,0.9);
+    }
+
+    .image-frame.spool-frame{
+      display: grid;
+      place-items: center;
+    }
+
+    .image-frame.spool-frame img{
+      width: 100%;
+      height: 300px;
+      object-fit: contain;
+      transform: rotate(-90deg);
+      transform-origin: center center;
+      background: rgba(8,12,18,0.9);
+    }
+
+    .pdf-card{
+      padding-bottom: 0;
+    }
+
+    .pdf-card h3{
+      padding-bottom: 8px;
+    }
+
+    .pdf-wrap{
+      padding: 0 16px 16px;
+    }
+
+    .pdf-wrap iframe{
+      display: block;
+      width: 100%;
+      height: 1220px;
+      border: 1px solid var(--border, rgba(255,255,255,0.12));
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    @media (max-width: 1050px){
+      .container{
+        max-width: 980px;
+      }
+
+      .project-grid{
+        grid-template-columns: 1fr;
+      }
+
+      .pdf-wrap iframe{
+        height: 950px;
+      }
+    }
+
+    @media (max-width: 640px){
+      .image-frame img,
+      .image-frame.spool-frame img{
+        height: 220px;
+      }
+
+      .pdf-wrap iframe{
+        height: 760px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="../index.html" aria-label="Go to home">
+          <div class="mark" aria-hidden="true"><span>CJ</span></div>
+          <div class="title">
+            <strong>Cameron Jordan</strong>
+            <small>Mechanical Engineering · prototyping · manufacturing</small>
+          </div>
+        </a>
+
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#skills">Skills</a></li>
+            <li><a href="../resume.html">Resume &amp; roles</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <div class="panel project">
+          <div class="project-title">
+            <h1>Metal 3D Printing (Metal-Infused Filament Workflow)</h1>
+            <div class="meta">Completed</div>
+          </div>
+
+          <p><strong>Summary:</strong> Designed and documented a complete BMD metal printing workflow using metal-infused filament. Addressed filament brittleness with a custom spool holder and filament warmer, implemented purge procedures to prevent nozzle clogging, programmed debinding and sintering cycles, and characterized shrinkage to support accurate scaling.</p>
+
+          <div class="project-grid">
+            <div>
+              <h2>Overview</h2>
+              <p>
+                Bound Metal Deposition uses plastic-bound metal powder to produce a green part that must be debound and sintered to become fully metallic. This project focused on making that entire workflow reliable enough for a shared shop environment rather than treating the printer as a magical goblin box that spits out miracles.
+              </p>
+              <p>
+                I developed printer setup procedures, spool-feed modifications, purge routines, and furnace programs so the process could be repeated by other users with less trial-and-error. The final result was a documented workflow covering printing, post-processing, and troubleshooting from start to finish.
+              </p>
+
+              <h2>Technical approach</h2>
+              <p>
+                The first challenge was filament brittleness. Standard side-mounted feeding introduced enough bending to snap the filament, so I used a vertical spool feed and a filament warmer mounted close to the print head. The second challenge was clogging: if metal filament sat in the nozzle without active extrusion, the binder could burn away and leave fused powder behind. To avoid that, I built purge steps into the workflow before and immediately after printing.
+              </p>
+              <p>
+                After printing, the parts move through debinding and sintering cycles with dedicated furnace programs. I also tracked dimensional change through the process to support shrinkage compensation when preparing CAD geometry.
+              </p>
+
+              <h2>Key contributions</h2>
+              <ul class="detail-list">
+                <li>Created a vertical spool holder and warmer setup to reduce filament breakage during feeding.</li>
+                <li>Developed purge and startup procedures to minimize nozzle clogging from burned binder and fused powder.</li>
+                <li>Documented printer calibration, print setup, shutdown, debinding, and sintering workflows for shop use.</li>
+                <li>Defined furnace programs for debinding and sintering steps.</li>
+                <li>Characterized shrinkage behavior to inform part scaling and dimensional expectations.</li>
+              </ul>
+
+              <h2>Tools and skills</h2>
+              <div class="stack">
+                <span class="badge accent2">Additive manufacturing</span>
+                <span class="badge">Process engineering</span>
+                <span class="badge accent">Materials</span>
+                <span class="badge">Thermal processing</span>
+                <span class="badge accent2">Documentation</span>
+              </div>
+
+              <p style="margin-top:14px;">
+                <a class="btn" href="../index.html#projects">Back to projects</a>
+              </p>
+            </div>
+
+            <div class="media-stack">
+              <div class="media-card">
+                <h3>Printer setup</h3>
+                <div class="image-frame">
+                  <img src="../Assets/img/metal-3d-print-setup.jpg" alt="Metal 3D printing setup" loading="lazy" />
+                </div>
+                <p class="caption">Dual-printer setup used for BMD printing at EPIC.</p>
+              </div>
+
+              <div class="media-card">
+                <h3>Spool holder &amp; warmer</h3>
+                <div class="image-frame spool-frame">
+                  <img src="../Assets/img/spool-holder.jpg" alt="Custom spool holder and filament warmer" loading="lazy" />
+                </div>
+                <p class="caption">Vertical feed path and localized heating reduce brittle filament breakage before the extruder.</p>
+              </div>
+
+              <div class="media-card">
+                <h3>Debinding &amp; sintering furnace</h3>
+                <div class="image-frame contain">
+                  <img src="../Assets/img/sintering-furnace.jpg" alt="Sintering furnace used for metal parts" loading="lazy" />
+                </div>
+                <p class="caption">High-temperature furnace used for debinding and sintering cycles.</p>
+              </div>
+
+              <div class="media-card pdf-card">
+                <h3>Full operations guide</h3>
+                <div class="pdf-wrap">
+                  <iframe src="../Assets/pdf/metal-printing-workflow.pdf#view=FitH" title="Metal 3D Printing Operations Guide"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div>
+          <span style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">
+            © 2025 Cameron Jordan
+          </span>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
